@@ -1,0 +1,9 @@
+[project]
+name = "todo"
+version = "0.1.0"
+description = "CLI to-do list app"
+authors = [{name = "Alex G"}]
+requires-python = ">=3"
+
+[project.scripts]
+todo = "todo.cli:main"
