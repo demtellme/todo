@@ -1,5 +1,6 @@
 ## todo
 A simple terminal based todo app to help keep track of tasks
+Adds a log file that lets you see what you've removed and what youve finished 
 
 ## Installation
 
@@ -21,10 +22,14 @@ pipx uninstall todo
 todo <command> <argument one> 
 ```
  ## Commands:
+    # anywhere you see "<task>" the quote marks are necessary if an argument is provided but there dosent need to be an argument
+    
     h - displays commands if you forget :)
-    v  - view all tasks
-    a "<task>" - add an item to the todo list, has an option if you dont provide an argument
-    rm <task> - removes a task, has an option if you dont provide an argument
+    v <option>  - When called without an option shows the todo list, when called as `todo v log` it shows what youve done with the app
+    a "<task>" - add an item to the todo list
+    rm "<task>" - removes an item from the todo list
     rd - if youre feeling indecisive it picks a random task for you to complete
+    e "<task>" - allows you to edit a task if you got something wrong
+    fin "<task>" - do this to signal that youve finished an item on your todo list
 
 Made By Alex G
