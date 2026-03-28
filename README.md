@@ -6,10 +6,10 @@ Adds a log file that lets you see what you've removed and what youve finished
 
 ```bash
 # Install with pipx (recommended)
-pipx install git+https://github.com/demtellme/todo.git
+pipx install git+https://github.com/starcrossd/todo.git
 
 # Or with pip
-pip install --user git+https://github.com/demtellme/todo.git
+pip install --user git+https://github.com/starcrossd/todo.git
 ```
 
 ## Uninstall Command
