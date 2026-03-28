@@ -9,5 +9,5 @@ if not os.path.exists(TODOLIST):
     print("initialised todo to-do list file")
 
 if not os.path.exists(LOGFILE):
-    open(LOGFILE, "w").write("added:\nremoved:\nfinished:\nedited:")
+    open(LOGFILE, "w").close()
     print("initialised todo to-do list log file")

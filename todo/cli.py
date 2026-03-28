@@ -9,12 +9,10 @@ LOGFILE = os.path.join(BASEDIR, ".todolog.txt")
 
 lines = open(TODOLIST, "r").readlines()
 
-def log(item,index):
-    lines = open(LOGFILE, "r+").readlines()
-    lines[index] = lines[index].rstrip("\n") + f"|{item}"
-    open(LOGFILE, "w").writelines(lines)
-
-
+def log(item, category):
+    categories = ["added", "removed", "finished", "edited"]
+    item = item.strip()
+    open(LOGFILE, "a").write(f"{categories[category]}|{item}\n")
 
 def help():
     print("""a "<task>" - adds a task
@@ -76,15 +74,13 @@ def view(option=None):
             print(line)
     elif option == "log":
         loglines = open(LOGFILE, "r").readlines()
+        counts = {"added": 0, "removed": 0, "finished": 0, "edited": 0}
         for line in loglines:
-            print(line + "\n")
-
-        added = loglines[0].split("|")
-        removed = loglines[1].split("|")
-        finished = loglines[2].split("|")
-        edited = loglines[3].split("|")
-
-        print(f"\nadded: {len(added)-1}, removed: {len(removed)-1}, finished: {len(finished)-1}, edited: {len(edited)-1}")
+            parts = line.strip().split("|", 1)
+            if parts[0] in counts:
+                counts[parts[0]] += 1
+                print(f"[{parts[0]}] {parts[1]}")
+        print(f"\nadded: {counts['added']}, removed: {counts['removed']}, finished: {counts['finished']}, edited: {counts['edited']}")
     else:
         print(f"{option} isnt a valid view option")
 
